@@ -7,7 +7,7 @@
 ;; URL: http://raw.github.com/rolandwalker/simpleclip/master/simpleclip.el
 ;; Version: 0.2.2
 ;; Last-Updated: 27 Nov 2012
-;; Keywords:
+;; Keywords: convenience
 ;;
 ;; Simplified BSD License
 ;;
