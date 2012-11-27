@@ -5,7 +5,7 @@
 ;; Author: Roland Walker <walker@pobox.com>
 ;; Homepage: http://github.com/rolandwalker/simpleclip
 ;; URL: http://raw.github.com/rolandwalker/simpleclip/master/simpleclip.el
-;; Version: 0.2.0
+;; Version: 0.2.2
 ;; Last-Updated: 27 Nov 2012
 ;; Keywords:
 ;;
@@ -161,7 +161,7 @@
 ;;;###autoload
 (defgroup simpleclip nil
   "Simplified access to the system clipboard."
-  :version "0.2.0"
+  :version "0.2.2"
   :link '(emacs-commentary-link "simpleclip")
   :prefix "simpleclip-"
   :group 'convenience)
