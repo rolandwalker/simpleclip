@@ -151,6 +151,11 @@
 
 (autoload 'term-send-raw-string "term")
 
+;;; declarations
+
+(eval-when-compile
+  (defvar x-select-enable-clipboard))
+
 ;;; customizable variables
 
 ;;;###autoload
