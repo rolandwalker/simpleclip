@@ -149,6 +149,8 @@
 ;; for callf, assert
 (require 'cl)
 
+(autoload 'term-send-raw-string "term")
+
 ;;; customizable variables
 
 ;;;###autoload
@@ -432,10 +434,14 @@ is 'toggle."
   (let ((str-val (simpleclip-get-contents)))
     (unless str-val
       (error "No content to paste"))
-    (when (use-region-p)
-      (delete-region (region-beginning) (region-end)))
-    (push-mark (point) t)
-    (insert-for-yank str-val)
+    (cond
+      ((derived-mode-p 'term-mode)
+       (term-send-raw-string str-val))
+      (t
+       (when (use-region-p)
+         (delete-region (region-beginning) (region-end)))
+       (push-mark (point) t)
+       (insert-for-yank str-val)))
     (when (and (not (minibufferp))
                (not simpleclip-less-feedback)
                (simpleclip-called-interactively-p 'interactive))
