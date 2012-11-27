@@ -28,13 +28,13 @@
 ;; By default, Emacs orchestrates a subtle interaction between the
 ;; internal kill ring and the external system clipboard.
 ;;
-;; `simpleclip-mode' radically simplifies things: the system clipboard
-;; and the Emacs kill ring are made completely independent, and never
-;; influence each other.
+;; `simpleclip-mode' radically simplifies clipboard handling: the
+;; system clipboard and the Emacs kill ring are made completely
+;; independent, and never influence each other.
 ;;
 ;; `simpleclip-mode' also enables support for accessing the system
 ;; clipboard from a TTY where possible.  You will likely need to
-;; set up custom keybindings to take advantage of that.
+;; set up custom keybindings if you want to take advantage of that.
 ;;
 ;; To use simpleclip, place the simpleclip.el library somewhere
 ;; Emacs can find it, and add the following to your ~/.emacs file:
@@ -86,7 +86,7 @@
 ;;
 ;;     No external dependencies
 ;;
-;;     Tested on OS X, X11, and MS Windows.
+;;     Tested on OS X, X11, and MS Windows
 ;;
 ;; Bugs
 ;;
