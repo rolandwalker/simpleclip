@@ -68,6 +68,13 @@ Notes
 
 `x-select-enable-primary` is not affected by `simpleclip-mode`.
 
+Access to the system clipboard from a TTY is provided for those
+cases where a literal paste is needed -- for example, where
+autopair interferes with pasted input which is interpreted as
+keystrokes.  If you are already happy with the copy/paste provided
+by your terminal emulator, then you don't need to set up
+simpleclip's TTY support.
+
 The following functions may be useful to call from Lisp:
 
 	simpleclip-get-contents
