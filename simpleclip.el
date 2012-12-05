@@ -169,7 +169,9 @@
 (defgroup simpleclip nil
   "Simplified access to the system clipboard."
   :version "0.2.2"
-  :link '(emacs-commentary-link "simpleclip")
+  :link '(emacs-commentary-link :tag "Commentary" "simpleclip")
+  :link '(url-link :tag "Github" "http://github.com/rolandwalker/simpleclip")
+  :link '(url-link :tag "EmacsWiki" "http://emacswiki.org/emacs/Simpleclip")
   :prefix "simpleclip-"
   :group 'convenience)
 
