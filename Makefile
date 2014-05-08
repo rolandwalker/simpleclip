@@ -22,7 +22,7 @@ EMACS_BATCH=$(EMACS_CLEAN) --batch
 TESTS=
 WIKI_USERNAME=roland.walker
 
-CURL=curl --silent
+CURL=curl --location --silent
 EDITOR=runemacs -no_wait
 WORK_DIR=$(shell pwd)
 PACKAGE_NAME=$(shell basename $(WORK_DIR))

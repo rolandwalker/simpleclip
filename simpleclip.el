@@ -4,7 +4,7 @@
 ;;
 ;; Author: Roland Walker <walker@pobox.com>
 ;; Homepage: http://github.com/rolandwalker/simpleclip
-;; URL: http://raw.github.com/rolandwalker/simpleclip/master/simpleclip.el
+;; URL: http://raw.githubusercontent.com/rolandwalker/simpleclip/master/simpleclip.el
 ;; Version: 1.0.0
 ;; Last-Updated: 25 Oct 2013
 ;; Keywords: convenience
