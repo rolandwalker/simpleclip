@@ -53,9 +53,9 @@ Keystroke                                 | Command
 <kbd>super-c</kbd> (*ie* <kbd>⌘-c</kbd>)  | `simpleclip-copy`
 <kbd>super-x</kbd> (*ie* <kbd>⌘-x</kbd>)  | `simpleclip-cut`
 <kbd>super-v</kbd> (*ie* <kbd>⌘-v</kbd>)  | `simpleclip-paste`
-<kbd>C-<insert></kbd>                     | `simpleclip-copy`
-<kbd>S-<delete></kbd>                     | `simpleclip-cut`
-<kbd>S-<insert></kbd>                     | `simpleclip-paste`
+<kbd>C-&lt;insert&gt;</kbd>               | `simpleclip-copy`
+<kbd>S-&lt;delete&gt;</kbd>               | `simpleclip-cut`
+<kbd>S-&lt;insert&gt;</kbd>               | `simpleclip-paste`
 
 The <kbd>super</kbd> keybindings are friendly for OS X: <kbd>super</kbd> is
 generally mapped to the "command" key *ie* <kbd>⌘</kbd>.  The <kbd>insert</kbd>
