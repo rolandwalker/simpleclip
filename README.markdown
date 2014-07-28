@@ -44,20 +44,22 @@ bindings which are modifiable in customize.
 
 The default bindings override keystrokes which may be bound as
 alternatives for kill/yank commands on your system.  "Traditional"
-kill/yank keys (control-k, control-y, meta-y) are unaffected.
+kill/yank keys (<kbd>C-k</kbd>, <kbd>C-y</kbd>, <kbd>M-y</kbd>) are unaffected.
 
 The default keybindings are
 
-	         super-c   simpleclip-copy
-	         super-x   simpleclip-cut
-	         super-v   simpleclip-paste
+Keystroke                                 | Command
+------------------------------------------|--------------------------------
+<kbd>super-c</kbd> (*ie* <kbd>⌘-c</kbd>)  | `simpleclip-copy`
+<kbd>super-x</kbd> (*ie* <kbd>⌘-x</kbd>)  | `simpleclip-cut`
+<kbd>super-v</kbd> (*ie* <kbd>⌘-v</kbd>)  | `simpleclip-paste`
+<kbd>C-<insert></kbd>                     | `simpleclip-copy`
+<kbd>S-<delete></kbd>                     | `simpleclip-cut`
+<kbd>S-<insert></kbd>                     | `simpleclip-paste`
 
-	control-<insert>   simpleclip-copy
-	  shift-<delete>   simpleclip-cut
-	  shift-<insert>   simpleclip-paste
-
-The `super` keybindings are friendly for OS X.  The `insert`/`delete`
-keybindings are better suited for Unix and MS Windows.
+The <kbd>super</kbd> keybindings are friendly for OS X: <kbd>super</kbd> is
+generally mapped to the "command" key *ie* <kbd>⌘</kbd>.  The <kbd>insert</kbd>
+and <kbd>delete</kbd> keybindings are better suited for Unix and MS Windows.
 
 ## Notes
 
