@@ -8,7 +8,7 @@ Simplified access to the system clipboard in Emacs.
 Quickstart
 ----------
 
-```lisp
+```elisp
 (require 'simpleclip)
  
 (simpleclip-mode 1)
@@ -35,7 +35,7 @@ set up custom keybindings if you want to take advantage of that.
 To use simpleclip, place the simpleclip.el library somewhere
 Emacs can find it, and add the following to your ~/.emacs file:
 
-```lisp
+```elisp
 (require 'simpleclip)
 (simpleclip-mode 1)
 ```
