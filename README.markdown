@@ -1,12 +1,10 @@
 [![Build Status](https://secure.travis-ci.org/rolandwalker/simpleclip.png?branch=master)](http://travis-ci.org/rolandwalker/simpleclip)
 
-Overview
-========
+# Overview
 
 Simplified access to the system clipboard in Emacs.
 
-Quickstart
-----------
+## Quickstart
 
 ```elisp
 (require 'simpleclip)
@@ -18,8 +16,7 @@ Quickstart
 ;; On OS X, use ⌘-c, ⌘-v, ⌘-x.
 ```
 
-Explanation
------------
+## Explanation
 
 By default, Emacs orchestrates a subtle interaction between the
 internal kill ring and the external system clipboard.
@@ -40,8 +37,7 @@ Emacs can find it, and add the following to your ~/.emacs file:
 (simpleclip-mode 1)
 ```
 
-Keybindings
------------
+## Keybindings
 
 Turning on `simpleclip-mode` activates clipboard-oriented key
 bindings which are modifiable in customize.
@@ -63,8 +59,7 @@ The default keybindings are
 The `super` keybindings are friendly for OS X.  The `insert`/`delete`
 keybindings are better suited for Unix and MS Windows.
 
-Notes
------
+## Notes
 
 `x-select-enable-primary` is not affected by `simpleclip-mode`.
 
@@ -80,8 +75,7 @@ The following functions may be useful to call from Lisp:
 	simpleclip-get-contents
 	simpleclip-set-contents
 
-Compatibility and Requirements
-------------------------------
+## Compatibility and Requirements
 
 	GNU Emacs version 24.4-devel     : yes, at the time of writing
 	GNU Emacs version 24.3           : yes
