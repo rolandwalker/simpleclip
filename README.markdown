@@ -29,8 +29,8 @@ independent, and never influence each other.
 clipboard from a TTY where possible.  You will likely need to
 set up custom keybindings if you want to take advantage of that.
 
-To use simpleclip, place the simpleclip.el library somewhere
-Emacs can find it, and add the following to your ~/.emacs file:
+To use simpleclip, place the `simpleclip.el` library somewhere
+Emacs can find it, and add the following to your `~/.emacs` file:
 
 ```elisp
 (require 'simpleclip)
