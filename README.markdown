@@ -40,7 +40,7 @@ Emacs can find it, and add the following to your `~/.emacs` file:
 ## Keybindings
 
 Turning on `simpleclip-mode` activates clipboard-oriented key
-bindings which are modifiable in customize.
+bindings which are modifiable in `customize`.
 
 The default bindings override keystrokes which may be bound as
 alternatives for kill/yank commands on your system.  "Traditional"
