@@ -1,6 +1,6 @@
 ;;; simpleclip.el --- Simplified access to the system clipboard
 ;;
-;; Copyright (c) 2012-13 Roland Walker
+;; Copyright (c) 2012-2015 Roland Walker
 ;;
 ;; Author: Roland Walker <walker@pobox.com>
 ;; Homepage: http://github.com/rolandwalker/simpleclip
