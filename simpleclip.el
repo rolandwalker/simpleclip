@@ -330,6 +330,10 @@ in GNU Emacs 24.1 or higher."
             (with-output-to-string
               (with-current-buffer standard-output
                 (call-process "/usr/bin/pbpaste" nil t nil "-Prefer" "txt"))))
+           ((eq system-type 'cygwin)
+            (with-output-to-string
+              (with-current-buffer standard-output
+                (call-process "getclip" nil t nil))))
            ((memq system-type '(gnu gnu/linux gnu/kfreebsd))
             (with-output-to-string
               (with-current-buffer standard-output
@@ -362,6 +366,10 @@ in GNU Emacs 24.1 or higher."
             (with-temp-buffer
               (insert str-val)
               (call-process-region (point-min) (point-max) "/usr/bin/pbcopy")))
+           ((eq system-type 'cygwin)
+            (with-temp-buffer
+              (insert str-val)
+              (call-process-region (point-min) (point-max) "putclip")))
            ((memq system-type '(gnu gnu/linux gnu/kfreebsd))
             (with-temp-buffer
               (insert str-val)
