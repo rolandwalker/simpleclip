@@ -190,6 +190,11 @@
   :type 'boolean
   :group 'simpleclip)
 
+(defcustom simpleclip-unmark-on-copy nil
+  "Unmark region after copying."
+  :type 'boolean
+  :group 'simpleclip)
+
 ;;;###autoload
 (defgroup simpleclip-keys nil
   "Key bindings for `simpleclip-mode'."
@@ -455,7 +460,9 @@ is 'toggle."
   (when (and (not (minibufferp))
              (not simpleclip-less-feedback)
              (simpleclip-called-interactively-p 'interactive))
-    (message "copied to clipboard")))
+    (message "copied to clipboard"))
+  (when simpleclip-unmark-on-copy
+    (deactivate-mark)))
 
 ;;;###autoload
 (defun simpleclip-cut (beg end)
