@@ -70,7 +70,8 @@
 ;;
 ;; Notes
 ;;
-;; `x-select-enable-primary' is not affected by `simpleclip-mode'.
+;; `simpleclip-mode' does not affect `x-select-enable-primary' or
+;; `select-enable-primary'.
 ;;
 ;; Access to the system clipboard from a TTY is provided for those
 ;; cases where a literal paste is needed -- for example, where
@@ -164,7 +165,8 @@
 ;;; declarations
 
 (eval-when-compile
-  (defvar x-select-enable-clipboard))
+  (defvar x-select-enable-clipboard)
+  (defvar select-enable-clipboard))
 
 ;;; customizable variables
 
@@ -245,7 +247,7 @@ The format for key sequences is as defined by `kbd'."
 (defvar simpleclip-saved-ipf nil
   "Saved value of `interprogram-paste-function'.")
 (defvar simpleclip-saved-xsec nil
-  "Saved value of `x-select-enable-clipboard'.")
+  "Saved value of `x-select-enable-clipboard' or `select-enable-clipboard'.")
 
 ;; MS Windows workaround - w32-get-clipboard-data returns nil
 ;; when Emacs was the originator of the clipboard data.
@@ -281,9 +283,10 @@ The format for key sequences is as defined by `kbd'."
                               "Paste"
                               simpleclip-paste
                               :enable
-                              (and (if (fboundp 'x-selection-exists-p)
-                                       (x-selection-exists-p 'CLIPBOARD)
-                                     t)
+                              (and (or (and (fboundp 'gui-backend-selection-exists-p)
+                                            (gui-backend-selection-exists-p 'CLIPBOARD))
+                                       (and (fboundp 'x-selection-exists-p)
+                                            (x-selection-exists-p 'CLIPBOARD)))
                                    (not buffer-read-only))
                               :help
                               "Paste (from clipboard) text most recently cut/copied"))
@@ -319,8 +322,13 @@ in GNU Emacs 24.1 or higher."
          (or (w32-get-clipboard-data)
              simpleclip-contents))
         ((and (featurep 'mac)
+              (fboundp 'gui-get-selection))
+         (gui-get-selection 'CLIPBOARD 'NSStringPboardType))
+        ((and (featurep 'mac)
               (fboundp 'x-get-selection))
          (x-get-selection 'CLIPBOARD 'NSStringPboardType))
+        ((fboundp 'gui-get-selection)
+         (gui-get-selection 'CLIPBOARD))
         ((fboundp 'x-get-selection)
          (x-get-selection 'CLIPBOARD))
         (t
@@ -357,6 +365,8 @@ in GNU Emacs 24.1 or higher."
         ((fboundp 'w32-set-clipboard-data)
          (w32-set-clipboard-data str-val)
          (setq simpleclip-contents str-val))
+        ((fboundp 'guie-set-selection)
+         (gui-set-selection 'CLIPBOARD str-val))
         ((fboundp 'x-set-selection)
          (x-set-selection 'CLIPBOARD str-val))
         (t
@@ -401,19 +411,29 @@ is 'toggle."
    (simpleclip-mode
     (setq simpleclip-saved-icf interprogram-cut-function)
     (setq simpleclip-saved-ipf interprogram-paste-function)
-    (when (boundp 'x-select-enable-clipboard)
-      (setq simpleclip-saved-xsec x-select-enable-clipboard))
+    (cond
+      ((boundp 'select-enable-clipboard)
+       (setq simpleclip-saved-xsec select-enable-clipboard))
+      ((boundp 'x-select-enable-clipboard)
+       (setq simpleclip-saved-xsec x-select-enable-clipboard)))
     (setq interprogram-cut-function nil)
     (setq interprogram-paste-function nil)
-    (setq x-select-enable-clipboard nil)
+    (cond
+      ((boundp 'select-enable-clipboard)
+       (setq select-enable-clipboard nil))
+      ((boundp 'x-select-enable-clipboard)
+       (setq x-select-enable-clipboard nil)))
     (when (and (simpleclip-called-interactively-p 'interactive)
                (not simpleclip-less-feedback))
       (message "simpleclip mode enabled")))
    (t
     (setq interprogram-cut-function simpleclip-saved-icf)
     (setq interprogram-paste-function simpleclip-saved-ipf)
-    (when (boundp 'x-select-enable-clipboard)
-      (setq x-select-enable-clipboard simpleclip-saved-xsec))
+    (cond
+      ((boundp 'select-enable-clipboard)
+       (setq select-enable-clipboard simpleclip-saved-xsec))
+      ((boundp 'x-select-enable-clipboard)
+       (setq x-select-enable-clipboard simpleclip-saved-xsec)))
     (setq simpleclip-saved-icf nil)
     (setq simpleclip-saved-ipf nil)
     (setq simpleclip-saved-xsec nil)
