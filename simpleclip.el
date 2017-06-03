@@ -5,8 +5,8 @@
 ;; Author: Roland Walker <walker@pobox.com>
 ;; Homepage: http://github.com/rolandwalker/simpleclip
 ;; URL: http://raw.githubusercontent.com/rolandwalker/simpleclip/master/simpleclip.el
-;; Version: 1.0.0
-;; Last-Updated: 25 Oct 2013
+;; Version: 1.0.2
+;; Last-Updated:  3 Jun 2017
 ;; Keywords: convenience
 ;;
 ;; Simplified BSD License
@@ -173,7 +173,7 @@
 ;;;###autoload
 (defgroup simpleclip nil
   "Simplified access to the system clipboard."
-  :version "1.0.0"
+  :version "1.0.2"
   :link '(emacs-commentary-link :tag "Commentary" "simpleclip")
   :link '(url-link :tag "GitHub" "http://github.com/rolandwalker/simpleclip")
   :link '(url-link :tag "EmacsWiki" "http://emacswiki.org/emacs/Simpleclip")
