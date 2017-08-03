@@ -370,7 +370,7 @@ in GNU Emacs 24.1 or higher."
         ((fboundp 'w32-set-clipboard-data)
          (w32-set-clipboard-data str-val)
          (setq simpleclip-contents str-val))
-        ((fboundp 'guie-set-selection)
+        ((fboundp 'gui-set-selection)
          (gui-set-selection 'CLIPBOARD str-val))
         ((fboundp 'x-set-selection)
          (x-set-selection 'CLIPBOARD str-val))
