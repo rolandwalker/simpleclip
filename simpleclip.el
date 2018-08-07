@@ -427,10 +427,7 @@ is 'toggle."
       ((boundp 'select-enable-clipboard)
        (setq select-enable-clipboard nil))
       ((boundp 'x-select-enable-clipboard)
-       (setq x-select-enable-clipboard nil)))
-    (when (and (simpleclip-called-interactively-p 'interactive)
-               (not simpleclip-less-feedback))
-      (message "simpleclip mode enabled")))
+       (setq x-select-enable-clipboard nil))))
    (t
     (setq interprogram-cut-function simpleclip-saved-icf)
     (setq interprogram-paste-function simpleclip-saved-ipf)
@@ -441,10 +438,7 @@ is 'toggle."
        (setq x-select-enable-clipboard simpleclip-saved-xsec)))
     (setq simpleclip-saved-icf nil)
     (setq simpleclip-saved-ipf nil)
-    (setq simpleclip-saved-xsec nil)
-    (when (and (simpleclip-called-interactively-p 'interactive)
-               (not simpleclip-less-feedback))
-      (message "simpleclip mode disabled")))))
+    (setq simpleclip-saved-xsec nil))))
 
 ;;; interactive commands
 
