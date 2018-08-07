@@ -409,7 +409,6 @@ if the argument is positive and otherwise disables the mode.
 When called from Lisp, this command enables the mode if the
 argument is omitted or nil, and toggles the mode if the argument
 is 'toggle."
-  :keymap simpleclip-mode-map
   :group 'simpleclip
   :global t
   (cond
