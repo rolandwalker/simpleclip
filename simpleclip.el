@@ -332,10 +332,12 @@ in GNU Emacs 24.1 or higher."
         ((and (featurep 'mac)
               (fboundp 'x-get-selection))
          (x-get-selection 'CLIPBOARD 'NSStringPboardType))
+        ;; todo, this should try more than one request type, as in gui--selection-value-internal
         ((fboundp 'gui-get-selection)
-         (gui-get-selection 'CLIPBOARD))
+         (gui-get-selection 'CLIPBOARD (or x-select-request-type 'UTF8_STRING)))
+        ;; todo, this should try more than one request type, as in gui--selection-value-internal
         ((fboundp 'x-get-selection)
-         (x-get-selection 'CLIPBOARD))
+         (x-get-selection 'CLIPBOARD (or x-select-request-type 'UTF8_STRING)))
         (t
          (error "Clipboard support not available")))
     (error
