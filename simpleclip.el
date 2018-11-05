@@ -200,7 +200,7 @@
 
 If nil, use default logic to get clipboard content according to OS.
 
-If non nil, use the output of executing the provider program as clipboard content "
+If non-nil, use the output of executing the provider program as clipboard content."
    :type 'string
    :group 'simpleclip)
 
