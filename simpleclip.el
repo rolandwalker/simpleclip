@@ -158,7 +158,7 @@
 ;;; requirements
 
 ;; for callf, assert
-(require 'cl)
+(require 'cl-lib)
 
 (autoload 'term-send-raw-string "term")
 
@@ -374,8 +374,8 @@ in GNU Emacs 24.1 or higher."
 ;;;###autoload
 (defun simpleclip-set-contents (str-val)
   "Set the contents of the system clipboard to STR-VAL."
-  (callf or str-val "")
-  (assert (stringp str-val) nil "STR-VAL must be a string or nil")
+  (cl-callf or str-val "")
+  (cl-assert (stringp str-val) nil "STR-VAL must be a string or nil")
   (condition-case nil
       (cond
         ((fboundp 'ns-set-pasteboard)
