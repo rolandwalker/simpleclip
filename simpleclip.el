@@ -1,12 +1,12 @@
 ;;; simpleclip.el --- Simplified access to the system clipboard
 ;;
-;; Copyright (c) 2012-2018 Roland Walker
+;; Copyright (c) 2012-2020 Roland Walker
 ;;
 ;; Author: Roland Walker <walker@pobox.com>
 ;; Homepage: http://github.com/rolandwalker/simpleclip
 ;; URL: http://raw.githubusercontent.com/rolandwalker/simpleclip/master/simpleclip.el
-;; Version: 1.0.8
-;; Last-Updated:  5 Nov 2018
+;; Version: 1.0.10
+;; Last-Updated: 10 Feb 2020
 ;; Keywords: convenience
 ;;
 ;; Simplified BSD License
@@ -173,7 +173,7 @@
 ;;;###autoload
 (defgroup simpleclip nil
   "Simplified access to the system clipboard."
-  :version "1.0.8"
+  :version "1.0.10"
   :link '(emacs-commentary-link :tag "Commentary" "simpleclip")
   :link '(url-link :tag "GitHub" "http://github.com/rolandwalker/simpleclip")
   :link '(url-link :tag "EmacsWiki" "http://emacswiki.org/emacs/Simpleclip")
