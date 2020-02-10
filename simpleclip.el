@@ -157,7 +157,7 @@
 
 ;;; requirements
 
-;; for callf, assert
+;; for cl-callf, cl-assert
 (require 'cl-lib)
 
 (autoload 'term-send-raw-string "term")
