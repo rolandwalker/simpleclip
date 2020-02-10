@@ -85,14 +85,6 @@ The following functions may be useful to call from Lisp:
 
 ## Compatibility and Requirements
 
-	GNU Emacs version 25.1           : yes
-	GNU Emacs version 24.5           : yes
-	GNU Emacs version 24.4           : yes
-	GNU Emacs version 24.3           : yes
-	GNU Emacs version 23.3           : yes
-	GNU Emacs version 22.2           : yes, with some limitations
-	GNU Emacs version 21.x and lower : unknown
-
 No external dependencies
 
 Tested on OS X, X11, and MS Windows
