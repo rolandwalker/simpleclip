@@ -28,14 +28,13 @@ WORK_DIR=$(shell pwd)
 PACKAGE_NAME=$(shell basename $(WORK_DIR))
 PACKAGE_VERSION=$(shell perl -ne 'print "$$1\n" if m{^;+ *Version: *(\S+)}' $(PACKAGE_NAME).el)
 AUTOLOADS_FILE=$(PACKAGE_NAME)-autoloads.el
-TRAVIS_FILE=.travis.yml
 TEST_DIR=ert-tests
 TEST_DEP_1=ert
 TEST_DEP_1_STABLE_URL=http://git.savannah.gnu.org/cgit/emacs.git/plain/lisp/emacs-lisp/ert.el?h=emacs-24.3
 TEST_DEP_1_LATEST_URL=http://git.savannah.gnu.org/cgit/emacs.git/plain/lisp/emacs-lisp/ert.el?h=master
 
 .PHONY : build dist not-dirty pkg-version downloads downloads-latest autoloads \
- test-autoloads test-travis test test-prep test-batch test-interactive         \
+ test-autoloads test test-prep test-batch test-interactive         \
  test-tests clean edit run-pristine run-pristine-local upload-github           \
  upload-wiki upload-marmalade test-dep-1 test-dep-2 test-dep-3 test-dep-4      \
  test-dep-5 test-dep-6 test-dep-7 test-dep-8 test-dep-9
@@ -77,13 +76,10 @@ test-autoloads : autoloads
 	@$(RESOLVED_EMACS) $(EMACS_BATCH) -L . -l './$(AUTOLOADS_FILE)' || \
 	 ( echo "failed to load autoloads: $(AUTOLOADS_FILE)" && false )
 
-test-travis :
-	@if test -z "$$TRAVIS" && test -e '$(TRAVIS_FILE)'; then travis-lint '$(TRAVIS_FILE)'; fi
-
 test-tests :
 	@perl -ne 'if (m/^\s*\(\s*ert-deftest\s*(\S+)/) {die "$$1 test name duplicated in $$ARGV\n" if $$dupes{$$1}++}' '$(TEST_DIR)/'*-test.el
 
-test-prep : build test-dep-1 test-dep-2 test-dep-3 test-autoloads test-travis test-tests
+test-prep : build test-dep-1 test-dep-2 test-dep-3 test-autoloads test-tests
 
 test-batch :
 	@cd '$(TEST_DIR)'                                 && \
