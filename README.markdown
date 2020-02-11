@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/rolandwalker/simpleclip.png?branch=master)](http://travis-ci.org/rolandwalker/simpleclip)
+[![Build Status](https://github.com/rolandwalker/simpleclip/workflows/CI/badge.svg)](https://github.com/rolandwalker/simpleclip/actions)
 
 # Overview
 
