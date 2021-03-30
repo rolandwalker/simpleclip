@@ -322,25 +322,27 @@ in GNU Emacs 24.1 or higher."
   "Return the contents of the system clipboard as a string."
   (condition-case nil
       (cond
-       (simpleclip-custom-content-provider
-        (shell-command-to-string simpleclip-custom-content-provider))
-       ((fboundp 'ns-get-pasteboard)
-        (ns-get-pasteboard))
-       ((fboundp 'w32-get-clipboard-data)
-        (or (w32-get-clipboard-data)
-            simpleclip-contents))
-       ((and (featurep 'mac)
-             (fboundp 'gui-get-selection))
-        (gui-get-selection 'CLIPBOARD 'NSStringPboardType))
-       ((and (featurep 'mac)
-             (fboundp 'x-get-selection))
-        (x-get-selection 'CLIPBOARD 'NSStringPboardType))
-       ;; todo, this should try more than one request type, as in gui--selection-value-internal
-       ((fboundp 'gui-get-selection)
-        (gui-get-selection 'CLIPBOARD (or x-select-request-type 'UTF8_STRING)))
-       ;; todo, this should try more than one request type, as in gui--selection-value-internal
-       ((fboundp 'x-get-selection)
-        (x-get-selection 'CLIPBOARD (or x-select-request-type 'UTF8_STRING)))
+       ((and (fboundp 'window-system) (window-system)
+        (or
+          (and (boundp 'simpleclip-custom-content-provider)
+            (shell-command-to-string simpleclip-custom-content-provider))
+          (and (fboundp 'ns-get-pasteboard)
+            (ns-get-pasteboard))
+          (and (fboundp 'w32-get-clipboard-data)
+            (or (w32-get-clipboard-data)
+              simpleclip-contents))
+          (and (and (featurep 'mac)
+                 (fboundp 'gui-get-selection))
+            (gui-get-selection 'CLIPBOARD 'NSStringPboardType))
+          (and (and (featurep 'mac)
+                 (fboundp 'x-get-selection))
+            (x-get-selection 'CLIPBOARD 'NSStringPboardType))
+          ;; todo, this should try more than one request type, as in gui--selection-value-internal
+          (and (fboundp 'gui-get-selection)
+            (gui-get-selection 'CLIPBOARD (or x-select-request-type 'UTF8_STRING)))
+          ;; todo, this should try more than one request type, as in gui--selection-value-internal
+          (and (fboundp 'x-get-selection)
+            (x-get-selection 'CLIPBOARD (or x-select-request-type 'UTF8_STRING))))))
        (t
         (error "Clipboard support not available")))
     (error
@@ -370,15 +372,17 @@ in GNU Emacs 24.1 or higher."
   (cl-assert (stringp str-val) nil "STR-VAL must be a string or nil")
   (condition-case nil
       (cond
-        ((fboundp 'ns-set-pasteboard)
-         (ns-set-pasteboard str-val))
-        ((fboundp 'w32-set-clipboard-data)
-         (w32-set-clipboard-data str-val)
-         (setq simpleclip-contents str-val))
-        ((fboundp 'gui-set-selection)
-         (gui-set-selection 'CLIPBOARD str-val))
-        ((fboundp 'x-set-selection)
-         (x-set-selection 'CLIPBOARD str-val))
+        ((and (fboundp 'window-system) (window-system)
+         (or
+           (and (fboundp 'ns-set-pasteboard)
+             (ns-set-pasteboard str-val))
+           (and (fboundp 'w32-set-clipboard-data)
+             (w32-set-clipboard-data str-val)
+             (setq simpleclip-contents str-val))
+           (and (fboundp 'gui-set-selection)
+             (gui-set-selection 'CLIPBOARD str-val))
+           (and (fboundp 'x-set-selection)
+             (x-set-selection 'CLIPBOARD str-val)))))
         (t
          (error "Clipboard support not available")))
     (error
