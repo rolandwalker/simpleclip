@@ -325,6 +325,7 @@ in GNU Emacs 24.1 or higher."
        ((and (fboundp 'window-system) (window-system)
         (or
           (and (boundp 'simpleclip-custom-content-provider)
+               simpleclip-custom-content-provider
             (shell-command-to-string simpleclip-custom-content-provider))
           (and (fboundp 'ns-get-pasteboard)
             (ns-get-pasteboard))
