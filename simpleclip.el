@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; simpleclip.el --- Simplified access to the system clipboard
 ;;
 ;; Copyright (c) 2012-2020 Roland Walker
@@ -192,7 +193,8 @@
 
 If nil, use default logic to get clipboard content according to OS.
 
-If non-nil, use the output of executing the provider program as clipboard content."
+If non-nil, use the output of executing the provider program
+as clipboard content."
    :type 'string
    :group 'simpleclip)
 
@@ -422,7 +424,7 @@ if the argument is positive and otherwise disables the mode.
 
 When called from Lisp, this command enables the mode if the
 argument is omitted or nil, and toggles the mode if the argument
-is 'toggle."
+is \\='toggle."
   :group 'simpleclip
   :global t
   (cond
