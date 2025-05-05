@@ -8,6 +8,7 @@ Simplified access to the system clipboard in Emacs.
  * [Explanation](#explanation)
  * [Keybindings](#keybindings)
  * [Notes](#notes)
+ * [Wayland](#wayland)
  * [Compatibility and Requirements](#compatibility-and-requirements)
 
 ## Quickstart
@@ -83,8 +84,12 @@ The following functions may be useful to call from Lisp:
 	simpleclip-get-contents
 	simpleclip-set-contents
 
+## Wayland
+
+[wl-clipboard](https://github.com/bugaevc/wl-clipboard) is used on Wayland systems to interact with system clipboard.
+
 ## Compatibility and Requirements
 
 No external dependencies
 
-Tested on OS X, X11, and MS Windows
+Tested on OS X, X11, Wayland and MS Windows
